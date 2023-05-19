@@ -8,9 +8,10 @@ class New extends React.Component {
     
     return (
     
-    <div>Flights</div>;
+    
     <div>
-        <h1>Book</h1>
+      <h1>Mongoose Flights</h1>
+        <h2>Book your next Flight</h2>
         <form action="/flights" method="POST">
           <label name="airport">Airport:</label>
           <select name="airport" defaultValue="SAN">
@@ -42,11 +43,11 @@ class New extends React.Component {
           />
           <br />
           <br />
-          <input type="submit" value="Add" />
+          <input type="submit" value="Add Flight" />
         </form>
         <br />
           <br />
-        <a href="/flights">Go Back</a>
+        <a href="/flights">Back to Main Page</a>
       </div>
     );
   }

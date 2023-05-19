@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongose");
+const { Schema, model } = require("mongoose");
 
 const destinationSchema = new Schema({
     airport: { type: String, enum: ["AUS", "DAL", "LAX", "SAN", "SEA"], required: true,

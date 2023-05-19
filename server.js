@@ -5,7 +5,11 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 
-const Flight = require("./models/flght");
+const Flight = require("./models/flight");
+
+const { connect, connection } = require("mongoose");
+
+const methodOverride = require("method-override");
 
 connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
@@ -29,7 +33,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(methodOveride("_method"));
+app.use(methodOverride("_method"));
 app.use(express.static("public"));
 
 // I.N.D.U.C.E.S
@@ -56,7 +60,7 @@ app.get("/flights/new", (req, res) => {
 });
 
 // Put - destination
-app.put("/flight/:id/destination", async (req, res) => {
+app.put("/flights/:id/destination", async (req, res) => {
   try {
     console.log(req.body);
     const updatedFlight = await Flight.findByIdAndUpdate(
@@ -72,7 +76,7 @@ app.put("/flight/:id/destination", async (req, res) => {
 });
 
 // PUT
-app.put("/flight/:id", async (req, res) => {
+app.put("/flights/:id", async (req, res) => {
   try {
     const updatedFlight = await Flight.findByIdAndUpdate(
       req.params.id,
@@ -98,7 +102,7 @@ app.post("/flights", async (req, res) => {
 });
 
 // Edit
-app.get("/flight/:id/edit", async (req, res) => {
+app.get("/flights/:id/edit", async (req, res) => {
   try {
     const foundFlight = await Flight.findById(req.params.id);
     res.render("Edit", {
@@ -110,7 +114,7 @@ app.get("/flight/:id/edit", async (req, res) => {
 });
 
 // Show
-app.get("/flight/:id", async (req, res) => {
+app.get("/flights/:id", async (req, res) => {
   try {
     const foundFlight = await Flight.findById(req.params.id);
     console.log(foundFlight);
@@ -119,7 +123,7 @@ app.get("/flight/:id", async (req, res) => {
       flights: foundFlight,
     });
   } catch (err) {
-    res.status(400) send(err);
+    res.status(400).send(err);
   }
 });
 

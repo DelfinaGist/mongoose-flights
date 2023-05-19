@@ -8,9 +8,8 @@ class Show extends React.Component {
     const destination = flight.destination;
     console.log(flight, "Schedule");
 
-
     return (
-    <div>Show Page</div>;
+    <div>Show Page</div>,
     <div>
       <h1>Flight Schedule</h1>
         <p>Airport: {flight.airport}</p>
@@ -54,8 +53,6 @@ class Show extends React.Component {
         <a href="/flights">Back to Main Page</a>
       </div>
     );
-  }
-}
   }
 }
 
