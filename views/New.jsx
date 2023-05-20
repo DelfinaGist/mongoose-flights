@@ -5,6 +5,10 @@ class New extends React.Component {
     oneYearFromNow.setFullYear(oneYearFromNow.getFullYear() + 1);
     const defaultDeparture = oneYearFromNow.toISOString().substr(0, 16);
 
+    const linkStyle = {
+      fontWeight: "bold",
+      color: "blue",
+    };
     
     return (
     
@@ -47,7 +51,7 @@ class New extends React.Component {
         </form>
         <br />
           <br />
-        <a href="/flights">Back to Main Page</a>
+        <a href="/flights" style={linkStyle}>Back to Main Page</a>
       </div>
     );
   }

@@ -8,6 +8,11 @@ class Show extends React.Component {
     const destination = flight.destination;
     console.log(flight, "Schedule");
 
+    const linkStyle = {
+      fontWeight: "bold",
+      color: "blue",
+    };
+
     return (
     <div>Show Page</div>,
     <div>
@@ -17,7 +22,7 @@ class Show extends React.Component {
         <p>Flight #: {flight.flightNo}</p>
         <p>Departure time:{" "}
           {moment(flight.departs).format("ddd, MM/DD/YYYY, hh:mm a")}</p>
-          <a href={`/flights/${flight._id}/edit`}>Edit your Flight ?</a>
+          <a href={`/flights/${flight._id}/edit`} style={linkStyle}>Edit your Flight ?</a>
         <br />
         <h2>Destination:</h2>
         {destination.map((d, index) => (
@@ -50,7 +55,7 @@ class Show extends React.Component {
         </form>
         <br />
         <br />
-        <a href="/flights">Back to Main Page</a>
+        <a href="/flights" style={linkStyle}>Back to Main Page</a>
       </div>
     );
   }

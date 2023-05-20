@@ -6,6 +6,12 @@ class Edit extends React.Component {
     console.log(flight, "Change flight");
     const destination = this.props.flights.destination;
     console.log(destination[0]);
+
+    const linkStyle = {
+      fontWeight: "bold",
+      color: "blue",
+    };
+
     return (
         <div>
           <h1>Change my Flight </h1>
@@ -26,7 +32,9 @@ class Edit extends React.Component {
         <br />
         <input type="submit" value="Submit Changes" />
       </form>
-      <a href="/flights">Back to Main Page</a>
+        <br />
+        <br />
+      <a href="/flights" style={linkStyle}>Back to Main Page</a>
       </div>
     );
   }
